@@ -28,7 +28,12 @@ public class MainActivity extends AppCompatActivity {
 
         if (requestCode == 112 && resultCode == RESULT_OK) {
             Animal a = (Animal) data.getSerializableExtra(Keys.ANIMAL);
-            displayView.setText(currentDisplay + "\n\n\n" + a.toString());
+
+            if (currentDisplay.equals("")) {
+                displayView.setText(a.toString());
+            } else {
+                displayView.setText(currentDisplay + "\n\n\n" + a.toString());
+            }
         }
     }
 
